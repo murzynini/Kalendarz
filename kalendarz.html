@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <h1>Gabriel bekier</h1>
+  <h1>Kalendarz Adwętowy</h1>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advent Calendar</title>
+  <style>
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url('https://www.telepolis.pl/images/2020/11/play-swieta-prezenty.jpg') 
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    color: rgb(5, 9, 247); 
+}
+            
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 40px;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .door {
+      border: 4px solid rgb(214, 24, 189);
+      padding: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .door:hover {
+      background-color: #f00606;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="calendar" id="calendar">
+  
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const calendarContainer = document.getElementById("calendar");
+
+    
+    const adventVideoLinks = [
+      "https://www.youtube.com/watch?v=djZN_RRfZg4&pp=ygUiZGF3aWQgamFzcGVyIGdyYSBuYSBwcm9jZXNvcnplIHJ0eA%3D%3D1",
+      "https://www.youtube.com/watch?v=C0C3NK55tI8&pp=ygUSa3J6eWsgcHRlcm9kYWt0eWxh2",
+      "https://www.youtube.com/watch?v=9ipgD2U6JYo=3",
+      "https://www.youtube.com/watch?v=KCyLauoygPU=6",
+      "https://www.youtube.com/shorts/pWDLWUJRI4s=7",
+      "https://www.youtube.com/watch?v=b4XpMTUlorc=8",
+      "https://www.youtube.com/watch?v=e-kDoJtsDbw=9",
+      "https://www.youtube.com/watch?v=8Pc0AEbfnBM=10",
+      "https://www.youtube.com/watch?v=SJSkwzsLUbs=11",
+      "https://www.youtube.com/watch?v=H8lzc3eBXC0=12",
+      "https://www.youtube.com/watch?v=oXJ6wWy5wXU=13",
+      "https://www.youtube.com/watch?v=E8gmARGvPlI&pp=ygUKbGFzdCBjaHJpcw%3D%3D=14",
+      "https://www.youtube.com/watch?v=oS-dUlHbkfk&pp=ygUUxZt3acSFdGVjem5lcGlvc2Vua2k%3D=15",
+      "https://www.youtube.com/watch?v=Fl7eXE4nLKg&pp=ygUUxZt3acSFdGVjem5lcGlvc2Vua2k%3D=16",
+      "https://www.youtube.com/watch?v=1cMleJAyK-0&pp=ygUUxZt3acSFdGVjem5lcGlvc2Vua2k%3D=17",
+      "https://www.youtube.com/watch?v=HnPIwybv9D4&pp=ygUUxZt3acSFdGVjem5lcGlvc2Vua2k%3D=18",
+      "https://www.youtube.com/watch?v=gFtb3EtjEic&list=PL9shVBur1zCwt6JectY14FUebdLI-8AU4&index=19",
+      "https://www.youtube.com/watch?v=wt6Nd8Br50I&list=PL9shVBur1zCwt6JectY14FUebdLI-8AU4&index=20",
+      "https://www.youtube.com/watch?v=fNADzb85s5s&pp=ygUUxZt3acSFdGVjem5lcGlvc2Vua2k%3D=21",
+      "https://www.youtube.com/watch?v=EGKuomlKTbU&list=PL9shVBur1zCwt6JectY14FUebdLI-8AU4&index=22",
+      "https://www.youtube.com/watch?v=E8gmARGvPlI&list=PL9shVBur1zCwt6JectY14FUebdLI-8AU4&index=1",
+      "https://www.youtube.com/watch?v=-kqqkavf9xM",
+      "https://www.youtube.com/watch?v=yXQViqx6GMY&list=PL9shVBur1zCwt6JectY14FUebdLI-8AU4&index=2",
+      "https://www.youtube.com/watch?v=aSVWDHK7WcA"
+    ];
+
+
+    
+    for (let i = 1; i <= 24; i++) {
+      const door = document.createElement("div");
+      door.className = "door";
+      door.textContent = i;
+      door.addEventListener("click", () => openDoor(i));
+      calendarContainer.appendChild(door);
+    }
+
+    function openDoor(day) {
+      const door = document.getElementsByClassName("door")[day - 1];
+      door.classList.add("hidden");
+
+      
+      window.location.href = adventVideoLinks[day - 1];
+    }
+  });
+</script>
+
+</body>
+</html>
